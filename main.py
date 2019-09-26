@@ -1,4 +1,4 @@
-import urllib2
+import requests
 import logging
 import json
 from ulauncher.api.client.Extension import Extension
@@ -28,11 +28,8 @@ class KeywordQueryEventListener(EventListener):
         url = 'https://api.npms.io/v2/search?q={}&size=5'.format(searchKeyword)
         logger.debug(url)
 
-        req = urllib2.Request(url)
-        req.add_header('User-Agent', 'ulauncher-npms')
-
-        response = urllib2.urlopen(req)
-        data = json.load(response)
+        response = requests.get(url, headers={'User-Agent' : 'ulauncher-npms'})
+        data = response.json()
 
         items = []
         for result in data['results']:
