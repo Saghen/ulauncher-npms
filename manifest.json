@@ -5,7 +5,7 @@
 	"developer_name": "Rolf Koenders",
 	"icon": "images/icon.png",
 	"options": {
-		"query_debounce": 1.5
+		"query_debounce": 0.2
 	},
 	"preferences": [{
 		"id": "npms_kw",
